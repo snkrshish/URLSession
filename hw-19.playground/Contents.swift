@@ -9,8 +9,9 @@ func getData(urlRequest: String) {
         if error != nil {
             print("Ошибка: \(error)")
         } else if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-            guard let data = data else { return }
-            let dataAsString = String(data: data, encoding: .utf8)
+            print("Код ответа от сервера: \(response)")
+        } else {
+            print("Не получили ответ от сервера")
         }
     }.resume()
 }
